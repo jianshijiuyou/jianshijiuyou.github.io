@@ -12,7 +12,7 @@
     
     <title>
         
-            关于我 | 
+            归档: 2018/3 | 
         
         jianshijiuyou
     </title>
@@ -67,7 +67,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jiuyou.info">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="关于我 | jianshijiuyou">
+    <meta property="og:title" content="归档: 2018/3 | jianshijiuyou">
     <meta property="og:image" content="/img/logo.jpg" />
     <meta property="og:description" content="android kotlin java blog">
     
@@ -75,7 +75,7 @@
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="关于我 | jianshijiuyou">
+    <meta name="twitter:title" content="归档: 2018/3 | jianshijiuyou">
     <meta name="twitter:description" content="android kotlin java blog">
     <meta name="twitter:image" content="/img/logo.jpg">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,7 +83,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://jiuyou.info/about/index.html" />
+        <link rel="canonical" href="http://jiuyou.info/archives/2018/03/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -271,181 +271,94 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
+    
+    <div class="locate-thumbnail-symbol"></div>
 
+    <!-- Pin on top -->
+    
 
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
+    <!-- Normal Post -->
     
         
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="http://os6ycxx7w.bkt.clouddn.com/images/9e77698c-cdcd-4540-b85a-1000d8e57e69.png">
+    
 
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2018/03/01/DjangoRESTframeworkAPIResponses/">Django REST framework API 指南：Responses</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            ...
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2018/03/01/DjangoRESTframeworkAPIResponses/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/logo.jpg" width="44px" height="44px" alt="jianshijiuyou's avatar">
+            </div>
+            <div>
+                <strong>jianshijiuyou</strong>
+                <span>3月 01, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/python/">python</a>
+            </span>
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
 </script>
 
-        
-    
-            <p class="article-headline-p">
-                关于我
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/logo.jpg" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>jianshijiuyou</strong>
-        <span>7月 28, 2017</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">devices other</i>
-    <span class="visuallyhidden">devices other</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-    
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://jiuyou.info/about/index.html">
-    
-</ul>
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于我&url=http://jiuyou.info/about/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-
-    <!-- Share Facebook -->
-    
-
-    <!-- Share Google+ -->
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-
-    <!-- Share Telegram -->
-    
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://jiuyou.info/about/index.html&text=关于我" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Telegram
-            </li>
-        </a>
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <p>关于介绍自己这段代码，还是写不好啊…</p>
-<p>先这样吧…  </p>
-<p>Email: jianshijiuyou@gmail.com</p>
-<p>Github: <a href="https://github.com/jianshijiuyou" target="_blank" rel="external">jianshijiuyou</a>  </p>
-<p>Telegram: <a href="https://telegram.me/jianshijiuyou" target="_blank" rel="external">jianshijiuyou</a></p>
-<p>qq: 1052603396</p>
-<p>weixin: De_te_cakam</p>
-<p>csdn: <a href="http://blog.csdn.net/jianshijiuyou" target="_blank" rel="external">jianshijiuyou</a></p>
-<p>简书: <a href="http://www.jianshu.com/u/ceabeebe7076" target="_blank" rel="external">剑弑九幽</a></p>
-<p>掘金: <a href="https://juejin.im/user/59cc5b6d6fb9a00a3e30780b" target="_blank" rel="external">wcode</a></p>
-
-    
-
     
 </div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-</nav>
-
-        </div>
-    </div>
-
 
 
                     
@@ -615,6 +528,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
