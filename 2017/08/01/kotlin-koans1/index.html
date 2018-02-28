@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            kotlin 四十二章经(koans)之 introduction | 
+        
+        jianshijiuyou
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+        <link rel="dns-prefetch" href="https://s95.cnzz.com"/>
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jianshijiuyou">
+    <meta name="description" itemprop="description" content="android kotlin java blog">
+    <meta name="keywords" content="android kotlin java blog,kotlinIntroduction,kotlinKoans">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/logo.jpg">
+    <link rel="icon" sizes="192x192" href="/img/logo.jpg">
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="jianshijiuyou">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://jiuyou.info">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="kotlin 四十二章经(koans)之 introduction | jianshijiuyou">
+    <meta property="og:image" content="/img/logo.jpg" />
+    <meta property="og:description" content="android kotlin java blog">
+    <meta property="og:article:tag" content="kotlinIntroduction"> <meta property="og:article:tag" content="kotlinKoans"> 
+
+    
+        <meta property="article:published_time" content="Tue Aug 01 2017 15:00:20 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Aug 02 2017 15:45:39 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="kotlin 四十二章经(koans)之 introduction | jianshijiuyou">
+    <meta name="twitter:description" content="android kotlin java blog">
+    <meta name="twitter:image" content="/img/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://jiuyou.info" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://jiuyou.info/2017/08/01/kotlin-koans1/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "jianshijiuyou",
+        "logo": "/img/logo.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "jianshijiuyou",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.jpg"
+        },
+        "description": "艰难困苦，玉汝于成"
+    },
+    "headline": "kotlin 四十二章经(koans)之 introduction",
+    "url": "http://jiuyou.info/2017/08/01/kotlin-koans1/index.html",
+    "datePublished": "Tue Aug 01 2017 15:00:20 GMT+0800",
+    "dateModified": "Wed Aug 02 2017 15:45:39 GMT+0800",
+    "description": "android kotlin java blog",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://jiuyou.info"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    
+    
+    
+    
+    
+    
+    .footer-sns-github {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNCA3OGMtNi40IDEuNC0yNi40IDE0LjItMzYgMjIuOC04IDcuMi0yMiAyOS44LTI0LjQgMzkuMi0xLjYgNi40LTIgMTEzLjItMS42IDM2OCAuNiAyOTkuNCAxIDM1OS44IDMuNCAzNjQgMTEgMjAuMiAyMS42IDMyLjQgMzcuMiA0MyAxNS42IDEwLjYgMTcuMiAxMS4yIDM0LjIgMTMuMiAxMC42IDEuMiA2My40IDEuNiAxMjcuNiAxLjRsMTA5LjYtLjYgNi02LjggNi4yLTYuOC0xLjItMjUuMmMtLjgtMTUuOC0uMi0zMy40IDEuNC00Ny4yIDMtMjUuNCAxLjQtMzYuMi02LTQzLjItNS00LjYtNi4yLTQuOC0zMC42LTQuMi0yNy42LjgtMjQgMS42LTY4LjgtMTYtOC42LTMuNC0yMi42LTE4LTI4LjQtMjkuOC0xMS40LTIyLjgtMjctNDUtMzkuMi01NS42LTE0LTEyLjItMTkuOC0yMC44LTE5LjgtMjguNiAwLTExLjYgMTMuNi0xMi42IDMzLjItMi40IDE2LjYgOC44IDIwLjggMTIuNCA0MC44IDM2LjIgMjQuMiAyOC42IDMxIDMzLjYgNTQgMzkuNiAxNS4yIDQgNDIuMiAzIDUxLjQtMS44IDktNC42IDE4LTE1LjIgMjQuNC0yOS4yIDExLjQtMjQuMiA3LjQtMzEuMi0yMC42LTM2LjgtOS44LTItMjkuMi04LTQzLjQtMTMuNC00MC40LTE1LjgtNjQuNi0zNy40LTg1LjQtNzYuMi0xMS42LTIxLjgtMTUuNC0zMy0xOC4yLTUzLjYtNC4yLTMyLjItNC44LTYwLjItMS40LTg0IDMuNC0yMy44IDYuOC0zMi44IDIwLjItNTQgNC02IDguOC0xNS42IDExLTIxLjQgMy44LTEwIDMuOC0xMS42IDEtMzAtNS4yLTM0LjItMy4yLTUyLjQgNy42LTcwLjIgNy4yLTEyLjIgMTUtMTcuMiAyNC4yLTE1LjggMTIuOCAyLjIgNTIgMTcuNCA2Ni44IDI2LjIgMjYgMTUgMjkgMTUuNCA4Mi40IDcuMiAyNC42LTMuOCAzMy44LTQuMiA2MC0zLjIgMTcgLjYgNDEuNCAzIDU0IDUuMiAzOC40IDYuNiA0OS42IDUuMiA3My0xMCA2LjYtNC4yIDE3LjQtOS40IDI0LTExLjYgNi42LTIuMiAxNi01LjggMjEtOC4yIDEzLTYgMjgtNS42IDM1LjYuOCAxMi40IDEwLjQgMTguNiA0MS40IDE0LjQgNzEuNi00LjQgMzAuNi0zIDM5LjQgOC40IDUzLjggMy40IDQuNCAxMS4yIDE5LjIgMTcuNCAzMy4yTDc3NSA0NDN2NzhsLTEwIDI4Yy0xNS4yIDQzLjItMzYuOCA3My4yLTY2LjIgOTIuOC0xMy40IDguOC01NyAyNS40LTc2LjggMjktMjguMiA1LjItMzMuMiAxMi42LTIyIDMyLjIgMTEuMiAxOS40IDEyLjQgMzIuOCAxMS42IDEyOS42bC0uNiA4NS44IDUuNCA0LjZjMy42IDMgOS4yIDUuMiAxNiA2IDUuOC44IDYwLjIgMSAxMjAuNi42IDEwOC40LS42IDExMC4yLS42IDExOS01IDI0LTExLjYgNDAtMjcuNCA1MS42LTUwLjZsNS40LTExIC42LTM0N2MuNC0yMjMtLjItMzUzLjQtMS40LTM2NS0yLTE3LTIuNi0xOC42LTEzLTM0LTEwLjYtMTUuNC0yMi44LTI2LjItNDMuMi0zNy4yLTQuMi0yLjQtNjQuNi0yLjgtMzY2LTMuMi0xOTguNiAwLTM2NCAuNC0zNjcuNiAxLjR6Ii8+PC9zdmc+);
+    }
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1263119800&web_id=1263119800" language="JavaScript"></script>
+</div>
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境"><span class="post-toc-text">环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一经-Hello-world"><span class="post-toc-text">第一经 Hello , world!</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考"><span class="post-toc-text">参考</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二经-Java-to-kotlin-conversion"><span class="post-toc-text">第二经 Java to kotlin conversion</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三经-Named-arguments"><span class="post-toc-text">第三经 Named arguments</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第四经-Default-arguments"><span class="post-toc-text">第四经 Default arguments</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第五经-Lambdas"><span class="post-toc-text">第五经 Lambdas</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第六经-Strings"><span class="post-toc-text">第六经 Strings</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原始字符串"><span class="post-toc-text">原始字符串</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符串模板"><span class="post-toc-text">字符串模板</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第七经-Data-classes"><span class="post-toc-text">第七经 Data classes</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注意"><span class="post-toc-text">注意</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#相关文章阅读："><span class="post-toc-text">相关文章阅读：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第八经-Nullable-types"><span class="post-toc-text">第八经 Nullable types</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第九经-Smart-casts"><span class="post-toc-text">第九经 Smart casts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第十经-Extension-functions"><span class="post-toc-text">第十经 Extension functions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第十一经-Object-expressions"><span class="post-toc-text">第十一经 Object expressions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第十二经-SAM-conversions"><span class="post-toc-text">第十二经 SAM conversions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第十三经-Extensions-on-collections"><span class="post-toc-text">第十三经 Extensions on collections</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                kotlin 四十二章经(koans)之 introduction
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>jianshijiuyou</strong>
+        <span>8月 01, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://jiuyou.info/2017/08/01/kotlin-koans1/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/kotlinIntroduction/">kotlinIntroduction</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/kotlinKoans/">kotlinKoans</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=kotlin 四十二章经(koans)之 introduction&url=http://jiuyou.info/2017/08/01/kotlin-koans1/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://jiuyou.info/2017/08/01/kotlin-koans1/index.html&text=kotlin 四十二章经(koans)之 introduction" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>intelliJ IDEA ， Edu Kotlin 插件。<br>具体可看这篇文章：<a href="https://blog.kotliner.cn/2017/07/23/KotlinKoans-01-Introduction-HelloWorld/" target="_blank" rel="external">解毒 Kotlin Koans: 01 Introduction/HelloWorld</a>  </p>
+<p>四十二章经的目的在于：</p>
+<ul>
+<li>学习 kotlin。</li>
+<li>培养 kotlin 式编码风格</li>
+</ul>
+<h2 id="第一经-Hello-world"><a href="#第一经-Hello-world" class="headerlink" title="第一经 Hello , world!"></a>第一经 Hello , world!</h2><blockquote>
+<p>Take a look at function syntax and make the function start return the string “OK”.</p>
+</blockquote>
+<p>查看函数语法，编译函数，使之返回字符串 “OK”</p>
+<p>java style</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>String<span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">"OK"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>kotlin style</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token operator">=</span> <span class="token string">"OK"</span>
+
+<span class="token comment" spellcheck="true">//再简化</span>
+<span class="token keyword">fun</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"OK"</span>
+</code></pre>
+<p>kotlin style : 默认参数法</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">start</span><span class="token punctuation">(</span>str<span class="token operator">:</span>String <span class="token operator">=</span> <span class="token string">"OK"</span><span class="token punctuation">)</span> <span class="token operator">=</span> str
+</code></pre>
+<p>kotlin style : lambda 表达式/匿名函数</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> start <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"OK"</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>kotlin style : 运算符重载法</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">object</span> start<span class="token punctuation">{</span>
+  operator <span class="token keyword">fun</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"OK"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>本题关键字 『自推导』、『默认参数』、『lambda』、『运算符重载法』</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>本题解法来自以下博客</p>
+<ul>
+<li><a href="https://blog.kotliner.cn/2017/07/23/KotlinKoans-01-Introduction-HelloWorld/" target="_blank" rel="external">解毒 Kotlin Koans: 01 Introduction/HelloWorld</a></li>
+<li><a href="https://blog.kotliner.cn/2017/07/30/KotlinKoans-02-Java-Kotlin-Conversion/" target="_blank" rel="external">解毒 Kotlin Koans: 02 震惊！你的 Java 代码居然被转换成了这样…</a></li>
+</ul>
+<h2 id="第二经-Java-to-kotlin-conversion"><a href="#第二经-Java-to-kotlin-conversion" class="headerlink" title="第二经 Java to kotlin conversion"></a>第二经 Java to kotlin conversion</h2><blockquote>
+<p>We have a handy tool for Java developers: Java to Kotlin converter. To become familiar with it, please convert the java function toJSON in the file JavaCode.java. You can just copy-paste the code to Kotlin file and agree to automatically convert it to Kotlin.</p>
+</blockquote>
+<p>我们为 Java 开发人员提供了一个工具（Java to Kotlin converter），你现在只需要将 JavaCode.java 中的 toJSON 方法复制到 kotlin 文件中，并同意将其转换为 java 代码即可。</p>
+<p>转换后的结果：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">toJSON</span><span class="token punctuation">(</span>collection<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> sb <span class="token operator">=</span> <span class="token function">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"["</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> iterator <span class="token operator">=</span> collection<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> element <span class="token operator">=</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"]"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>check 以下，的确可以通过 。  </p>
+<p>ps： 『Java to Kotlin converter』 虽然好用，但不能过于依赖。</p>
+<p>本题关键字 『Java to Kotlin converter』</p>
+<h2 id="第三经-Named-arguments"><a href="#第三经-Named-arguments" class="headerlink" title="第三经 Named arguments"></a>第三经 Named arguments</h2><blockquote>
+<p>Default and named arguments help to minimize the number of overloads and improve the readability of the function invocation. The library function joinToString is declared with default values for parameters:</p>
+<p>fun joinToString(</p>
+<p>separator: String = “, “,</p>
+<p>prefix: String = “”,</p>
+<p>postfix: String = “”,</p>
+<p>//…</p>
+<p>): String</p>
+<p>It can be called on a collection of Strings. Specifying only two arguments make the function joinOptions() &gt;return the list in a JSON format (e.g., “[a, b, c]”)</p>
+</blockquote>
+<p>默认参数和具名参数可以减少方法重载的次数，提高函数调用的可读性。kotlin 库中自带的 joinToString 函数参数就设置了默认值。扩展函数 joinToString 可以在字符串集合上直接调用，指定两个参数，使 joinOptions 函数返回 JSON 格式 (e.g., “[a, b, c]”)</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">joinOptions</span><span class="token punctuation">(</span>options<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">)</span> <span class="token operator">=</span> options<span class="token punctuation">.</span><span class="token function">joinToString</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"["</span><span class="token punctuation">,</span>postfix <span class="token operator">=</span> <span class="token string">"]"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>prefix , postfix 参数并不是第一个和第二个参数，但我们使用了具名参数的方法，就可以无视参数顺序，同时提高了可读性</p>
+<p>本题关键字 『具名参数』</p>
+<h2 id="第四经-Default-arguments"><a href="#第四经-Default-arguments" class="headerlink" title="第四经 Default arguments"></a>第四经 Default arguments</h2><p>现有 Java 代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> String <span class="token function">foo</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> number<span class="token punctuation">,</span> <span class="token keyword">boolean</span> toUpperCase<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span>toUpperCase <span class="token operator">?</span> name<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> name<span class="token punctuation">)</span> <span class="token operator">+</span> number<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> String <span class="token function">foo</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> <span class="token function">foo</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> number<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> String <span class="token function">foo</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">boolean</span> toUpperCase<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> <span class="token function">foo</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> toUpperCase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> String <span class="token function">foo</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> <span class="token function">foo</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>使用 kotlin 默认参数的形式修改上述代码：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">foo</span><span class="token punctuation">(</span>name<span class="token operator">:</span> String<span class="token punctuation">,</span> number<span class="token operator">:</span> Int<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">,</span> toUpperCase<span class="token operator">:</span> Boolean<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+        <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span>toUpperCase<span class="token punctuation">)</span> name<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> name<span class="token punctuation">)</span> <span class="token operator">+</span> number
+</code></pre>
+<p>由此可见， Java 中方法重载的写法在 kotlin 中可以被默认参数取代了（至少大多数情况下可以了）  </p>
+<p>本地关键字 『默认参数』</p>
+<h2 id="第五经-Lambdas"><a href="#第五经-Lambdas" class="headerlink" title="第五经 Lambdas"></a>第五经 Lambdas</h2><p>编写一个方法 <code>containsEven(collection: Collection&lt;Int&gt;): Boolean</code> ，当集合中存在一个偶数时返回 true ，否则 返回 false。</p>
+<p>java style:</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">containsEven</span><span class="token punctuation">(</span>collection<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> Boolean <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>item <span class="token keyword">in</span> collection<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>kotlin style:</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">containsEven</span><span class="token punctuation">(</span>collection<span class="token operator">:</span> Collection<span class="token operator">&lt;</span>Int<span class="token operator">></span><span class="token punctuation">)</span><span class="token operator">:</span> Boolean <span class="token operator">=</span> collection<span class="token punctuation">.</span><span class="token function">any</span> <span class="token punctuation">{</span> it <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>any 函数内部帮我们封装了循环，它接收一个 lambda 表达式 ，其参数就是 item，其返回类型是 Boolean。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">public</span> <span class="token keyword">inline</span> <span class="token keyword">fun</span> <span class="token operator">&lt;</span>T<span class="token operator">></span> Iterable<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span>predicate<span class="token operator">:</span> <span class="token punctuation">(</span>T<span class="token punctuation">)</span> <span class="token operator">-></span> Boolean<span class="token punctuation">)</span><span class="token operator">:</span> Boolean <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>element <span class="token keyword">in</span> <span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">predicate</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>本题关键字 『lambda』</p>
+<h2 id="第六经-Strings"><a href="#第六经-Strings" class="headerlink" title="第六经 Strings"></a>第六经 Strings</h2><p>学习 <a href="https://www.kotlincn.net/docs/reference/basic-types.html#字符串" target="_blank" rel="external">kotlin 中的原始字符串和字符串模板</a>  </p>
+<h4 id="原始字符串"><a href="#原始字符串" class="headerlink" title="原始字符串"></a>原始字符串</h4><p>原始字符串由三重引号（“”“）分隔，不包含转义，并且可以包含换行符和任何其他字符，比如可以像下面这样：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> text <span class="token operator">=</span> <span class="token raw-string string">"""
+    for (c in "foo")
+        print(c)
+"""</span>
+</code></pre>
+<p>注意，每行前面的空格也是字符串的一部份。<br>可以使用 <code>trimMargin()</code> 函数删除前导空格：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> text <span class="token operator">=</span> <span class="token raw-string string">"""
+    |Tell me and I forget.
+    |Teach me and I remember.
+    |Involve me and I learn.
+    |(Benjamin Franklin)
+    """</span><span class="token punctuation">.</span><span class="token function">trimMargin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>上面的 text 如果打印出来是下面这样：</p>
+<pre class=" language-string"><code class="language-string">Tell me and I forget.
+Teach me and I remember.
+Involve me and I learn.
+(Benjamin Franklin)
+</code></pre>
+<p>默认 | 用作边距前缀，但您可以选择另一个字符，并将其作为参数传递，如 <code>trimMargin(&quot;&gt;&quot;)</code>。  </p>
+<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p>字符串可以包含模板表达式，模板表达式的结果会自动连接到字符串中，模板表达式以 <code>$</code> 符号开头，后面跟一个简单的变量名：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> i <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">val</span> s <span class="token operator">=</span> <span class="token string">"i = <span class="token interpolation variable">$i</span>"</span> <span class="token comment" spellcheck="true">// s = "i = 10"</span>
+</code></pre>
+<p>如果 <code>$</code> 符号后跟上 <code>{}</code> ，则可以写任何表达式：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> s <span class="token operator">=</span> <span class="token string">"abc"</span>
+<span class="token keyword">val</span> str <span class="token operator">=</span> <span class="token string">"<span class="token interpolation variable">$s</span>.length is <span class="token interpolation"><span class="token delimiter variable">${</span>s<span class="token punctuation">.</span>length<span class="token delimiter variable">}</span></span>"</span> <span class="token comment" spellcheck="true">// str = "abc.length is 3"</span>
+</code></pre>
+<p>原始字符串和普通字符串内部都支持模板。如果您需要在原始字符串（不支持反斜杠转义）中表示一个文字 $ 字符，则可以使用以下语法：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> price <span class="token operator">=</span> <span class="token raw-string string">"""
+<span class="token interpolation"><span class="token delimiter variable">${</span><span class="token string">'$'</span><span class="token delimiter variable">}</span></span>9.99
+"""</span>
+
+<span class="token comment" spellcheck="true">// $9.99</span>
+</code></pre>
+<blockquote>
+<p>写了半天才想起来 kotlin 中文站已经翻译过了，fuck！！！</p>
+</blockquote>
+<p>回归正题<br>如何用正则表达式匹配 <code>13 JUN 1992</code> 这样的日期：  </p>
+<p>java style:</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> month <span class="token operator">=</span> <span class="token string">"(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"</span>
+
+<span class="token keyword">fun</span> <span class="token function">getPattern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"\\d{2} "</span> <span class="token operator">+</span> month <span class="token operator">+</span><span class="token string">" \\d{4}"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>如果是 java 需要用到 反斜杠转义 和 <code>+</code> 号，在正则表达式复杂的时候可读性很差，当然变量可以使用 <code>String.format()</code> 替换掉，但是 反斜杠转义呢？</p>
+<p>看看 kotlin style:</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> month <span class="token operator">=</span> <span class="token string">"(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"</span>
+
+<span class="token keyword">fun</span> <span class="token function">getPattern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> String <span class="token operator">=</span><span class="token raw-string string">"""\d{2} <span class="token interpolation"><span class="token delimiter variable">${</span>month<span class="token delimiter variable">}</span></span> \d{4}"""</span>
+</code></pre>
+<h2 id="第七经-Data-classes"><a href="#第七经-Data-classes" class="headerlink" title="第七经 Data classes"></a>第七经 Data classes</h2><p>在 java 中 一个实体类大概长这样：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span> <span class="token keyword">final</span> String name<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token function">Person</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> age<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在 kotlin 中实体类只需要用 data 关键字 标识 class：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">val</span> name<span class="token operator">:</span>String<span class="token punctuation">,</span><span class="token keyword">val</span> age<span class="token operator">:</span>Int<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>data class 生成的实体类没有默认的无参构造方法，如果需要生成默认无参构造方法需要使用插件 <a href="https://kotlinlang.org/docs/reference/compiler-plugins.html#no-arg-compiler-plugin" target="_blank" rel="external">No-arg</a><br>data class 生成的实体类是 final 类型的，无法被继承，要想被继承需要 <a href="https://kotlinlang.org/docs/reference/compiler-plugins.html#all-open-compiler-plugin" target="_blank" rel="external">All-open</a></p>
+<h4 id="相关文章阅读："><a href="#相关文章阅读：" class="headerlink" title="相关文章阅读："></a>相关文章阅读：</h4><ul>
+<li><a href="https://www.kotlincn.net/docs/reference/classes.html" target="_blank" rel="external">类和继承</a></li>
+<li><a href="https://www.kotlincn.net/docs/reference/properties.html" target="_blank" rel="external">属性和字段</a></li>
+<li><a href="https://www.kotlincn.net/docs/reference/data-classes.html" target="_blank" rel="external">kotlin 数据类</a></li>
+</ul>
+<h2 id="第八经-Nullable-types"><a href="#第八经-Nullable-types" class="headerlink" title="第八经 Nullable types"></a>第八经 Nullable types</h2><p>阅读 <a href="">关于Kotlin中的空安全和安全调用</a>，并使用只有 if 表达式重写以下Java代码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendMessageToClient</span><span class="token punctuation">(</span>
+
+<span class="token annotation punctuation">@Nullable</span> Client client<span class="token punctuation">,</span>
+
+<span class="token annotation punctuation">@Nullable</span> String message<span class="token punctuation">,</span>
+
+<span class="token annotation punctuation">@NotNull</span> Mailer mailer
+
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>client <span class="token operator">==</span> null <span class="token operator">||</span> message <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+PersonalInfo personalInfo <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">getPersonalInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>personalInfo <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+String email <span class="token operator">=</span> personalInfo<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>email <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+mailer<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span>email<span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>kotlin style :</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">sendMessageToClient</span><span class="token punctuation">(</span>
+        client<span class="token operator">:</span> Client<span class="token operator">?</span><span class="token punctuation">,</span> message<span class="token operator">:</span> String<span class="token operator">?</span><span class="token punctuation">,</span> mailer<span class="token operator">:</span> Mailer
+<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>client<span class="token operator">?</span><span class="token punctuation">.</span>personalInfo<span class="token operator">?</span><span class="token punctuation">.</span>email<span class="token operator">!=</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>message<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span>mailer<span class="token punctuation">.</span><span class="token function">sendMessage</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span>personalInfo<span class="token punctuation">.</span>email<span class="token punctuation">,</span>message<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token keyword">return</span>
+
+
+    <span class="token comment" spellcheck="true">//or</span>
+
+    <span class="token comment" spellcheck="true">//val email = client?.personalInfo?.email</span>
+    <span class="token comment" spellcheck="true">//if (email != null &amp;&amp; message != null) {</span>
+    <span class="token comment" spellcheck="true">//    mailer.sendMessage(email, message)</span>
+    <span class="token comment" spellcheck="true">//}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token function">Client</span> <span class="token punctuation">(</span><span class="token keyword">val</span> personalInfo<span class="token operator">:</span> PersonalInfo<span class="token operator">?</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token function">PersonalInfo</span> <span class="token punctuation">(</span><span class="token keyword">val</span> email<span class="token operator">:</span> String<span class="token operator">?</span><span class="token punctuation">)</span>
+<span class="token keyword">interface</span> Mailer <span class="token punctuation">{</span>
+    <span class="token keyword">fun</span> <span class="token function">sendMessage</span><span class="token punctuation">(</span>email<span class="token operator">:</span> String<span class="token punctuation">,</span> message<span class="token operator">:</span> String<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="第九经-Smart-casts"><a href="#第九经-Smart-casts" class="headerlink" title="第九经 Smart casts"></a>第九经 Smart casts</h2><p>阅读 <a href="http://www.kotlincn.net/docs/reference/typecasts.html#智能转换" target="_blank" rel="external">智能转换</a> 和 <a href="http://www.kotlincn.net/docs/reference/control-flow.html#when-表达式" target="_blank" rel="external">when 表达式</a>，重写以下 Java 代码</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">eval</span><span class="token punctuation">(</span>Expr expr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>expr <span class="token keyword">instanceof</span> <span class="token class-name">Num</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>Num<span class="token punctuation">)</span> expr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>expr <span class="token keyword">instanceof</span> <span class="token class-name">Sum</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Sum sum <span class="token operator">=</span> <span class="token punctuation">(</span>Sum<span class="token punctuation">)</span> expr<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">eval</span><span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token function">getLeft</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">eval</span><span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token function">getRight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"Unknown expression"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>kotlin style :</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token operator">:</span> Expr<span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token operator">=</span>
+        <span class="token keyword">when</span> <span class="token punctuation">(</span>expr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">is</span> Num <span class="token operator">-></span> expr<span class="token punctuation">.</span>value
+            <span class="token keyword">is</span> Sum <span class="token operator">-></span> <span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">eval</span><span class="token punctuation">(</span>expr<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+            <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token keyword">throw</span> <span class="token function">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"Unknown expression"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> Expr
+<span class="token keyword">class</span> <span class="token function">Num</span><span class="token punctuation">(</span><span class="token keyword">val</span> value<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">:</span> Expr
+<span class="token keyword">class</span> <span class="token function">Sum</span><span class="token punctuation">(</span><span class="token keyword">val</span> left<span class="token operator">:</span> Expr<span class="token punctuation">,</span> <span class="token keyword">val</span> right<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token operator">:</span> Expr
+</code></pre>
+<h2 id="第十经-Extension-functions"><a href="#第十经-Extension-functions" class="headerlink" title="第十经 Extension functions"></a>第十经 Extension functions</h2><p>阅读 <a href="http://www.kotlincn.net/docs/reference/extensions.html" target="_blank" rel="external">扩展函数</a>。编写扩展函数 Int.r() 和 Pair.r() 使它们将 Int 和 Pair 转换成 RationalNumber</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> Int<span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> RationalNumber <span class="token operator">=</span> <span class="token function">RationalNumber</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">fun</span> Pair<span class="token operator">&lt;</span>Int<span class="token punctuation">,</span> Int<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> RationalNumber <span class="token operator">=</span> <span class="token function">RationalNumber</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> second<span class="token punctuation">)</span>
+
+<span class="token keyword">data</span> <span class="token keyword">class</span> <span class="token function">RationalNumber</span><span class="token punctuation">(</span><span class="token keyword">val</span> numerator<span class="token operator">:</span> Int<span class="token punctuation">,</span> <span class="token keyword">val</span> denominator<span class="token operator">:</span> Int<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="第十一经-Object-expressions"><a href="#第十一经-Object-expressions" class="headerlink" title="第十一经 Object expressions"></a>第十一经 Object expressions</h2><p>kotlin 中的 <a href="http://www.kotlincn.net/docs/reference/object-declarations.html" target="_blank" rel="external">对象表达式</a> 和 java 中的匿名类扮演着相同的角色。<br>本题为 用对象表达式的方式给 Collections.sort 设置比较器参数，降序排列传入的集合：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span><span class="token operator">*</span>
+
+<span class="token keyword">fun</span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token operator">&lt;</span>Int<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> arrayList <span class="token operator">=</span> <span class="token function">arrayListOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arrayList<span class="token punctuation">,</span> <span class="token keyword">object</span> <span class="token operator">:</span> Comparator<span class="token operator">&lt;</span>Int<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">compare</span><span class="token punctuation">(</span>x<span class="token operator">:</span> Int<span class="token punctuation">,</span> y<span class="token operator">:</span> Int<span class="token punctuation">)</span> <span class="token operator">=</span> y <span class="token operator">-</span> x
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> arrayList
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="第十二经-SAM-conversions"><a href="#第十二经-SAM-conversions" class="headerlink" title="第十二经 SAM conversions"></a>第十二经 SAM conversions</h2><p>当对象的接口只具有一个单抽象方法时，可以用 lambda 表达式来替换它，详细请看 <a href="http://www.kotlincn.net/docs/reference/java-interop.html#sam-转换" target="_blank" rel="external">SAM-转换</a><br>这里我们将上一经的 对象表达式修改为 lambda 表达式：</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span><span class="token operator">*</span>
+
+<span class="token keyword">fun</span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token operator">&lt;</span>Int<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> arrayList <span class="token operator">=</span> <span class="token function">arrayListOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arrayList<span class="token punctuation">,</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token operator">-></span> y<span class="token operator">-</span>x <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> arrayList
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="第十三经-Extensions-on-collections"><a href="#第十三经-Extensions-on-collections" class="headerlink" title="第十三经 Extensions on collections"></a>第十三经 Extensions on collections</h2><p>Kotlin 代码可以很容易地与 Java 代码混编。 因此，在 Kotlin 中，我们不介绍我们自己的集合，而是使用标准的Java（稍做改进）。在 <a href="http://kotlinlang.org/api/latest/jvm/stdlib/kotlin/" target="_blank" rel="external">Kotlin 标准库</a>中有很多扩展功能，使得集合的工作更加方便。 再次使用 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/kotlin.-iterable/sorted-descending.html" target="_blank" rel="external">sortedDescending</a> 的扩展函数重写上一个示例。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token operator">&lt;</span>Int<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">arrayListOf</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sortedDescending</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- ʹ�� ������ -->
+<div id="livere-comment">
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTc4NS82MzUx">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/08/11/kotlin-koans2/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/07/30/android-crack-learn1/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/logo.jpg" alt="jianshijiuyou's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        jianshijiuyou@email.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: jianshijiuyou@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/android/">android<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/hexo/">hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/kotlin/">kotlin<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/">python<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/微信小程序/">微信小程序<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/随手抄/">随手抄<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jianshijiuyou" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>jianshijiuyou
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
