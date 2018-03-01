@@ -12,7 +12,7 @@
     
     <title>
         
-            Yertle the Turtle（乌龟大王亚特尔） | 
+            Django REST framework API 指南：视图 | 
         
         jianshijiuyou
     </title>
@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jianshijiuyou">
     <meta name="description" itemprop="description" content="android kotlin java blog">
-    <meta name="keywords" content="android kotlin java blog">
+    <meta name="keywords" content="android kotlin java blog,REST,Django">
 
     <!-- Site Verification -->
     
@@ -67,18 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jiuyou.info">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Yertle the Turtle（乌龟大王亚特尔） | jianshijiuyou">
+    <meta property="og:title" content="Django REST framework API 指南：视图 | jianshijiuyou">
     <meta property="og:image" content="/img/logo.jpg" />
     <meta property="og:description" content="android kotlin java blog">
-    
+    <meta property="og:article:tag" content="REST"> <meta property="og:article:tag" content="Django"> 
 
     
-        <meta property="article:published_time" content="Thu Aug 24 2017 17:30:00 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Aug 25 2017 09:53:41 GMT+0800" />
+        <meta property="article:published_time" content="Fri Mar 02 2018 13:14:20 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Mar 01 2018 14:26:46 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Yertle the Turtle（乌龟大王亚特尔） | jianshijiuyou">
+    <meta name="twitter:title" content="Django REST framework API 指南：视图 | jianshijiuyou">
     <meta name="twitter:description" content="android kotlin java blog">
     <meta name="twitter:image" content="/img/logo.jpg">
     <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://jiuyou.info/2017/08/24/Yertle_the_Turtle/index.html" />
+        <link rel="canonical" href="http://jiuyou.info/2018/03/02/DjangoRESTframeworkAPIViews/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -112,10 +112,10 @@
         },
         "description": "艰难困苦，玉汝于成"
     },
-    "headline": "Yertle the Turtle（乌龟大王亚特尔）",
-    "url": "http://jiuyou.info/2017/08/24/Yertle_the_Turtle/index.html",
-    "datePublished": "Thu Aug 24 2017 17:30:00 GMT+0800",
-    "dateModified": "Fri Aug 25 2017 09:53:41 GMT+0800",
+    "headline": "Django REST framework API 指南：视图",
+    "url": "http://jiuyou.info/2018/03/02/DjangoRESTframeworkAPIViews/index.html",
+    "datePublished": "Fri Mar 02 2018 13:14:20 GMT+0800",
+    "dateModified": "Thu Mar 01 2018 14:26:46 GMT+0800",
     "description": "android kotlin java blog",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -331,7 +331,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于类的视图"><span class="post-toc-text">基于类的视图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API-策略属性（policy-attributes）"><span class="post-toc-text">API 策略属性（policy attributes）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API-策略实例方法（policy-instantiation-methods）"><span class="post-toc-text">API 策略实例方法（policy instantiation methods）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API-策略实现方法（policy-implementation-methods）"><span class="post-toc-text">API 策略实现方法（policy implementation methods）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法调度"><span class="post-toc-text">方法调度</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于方法的视图"><span class="post-toc-text">基于方法的视图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#api-view"><span class="post-toc-text">@api_view()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API-策略装饰器-policy-decorators"><span class="post-toc-text">API 策略装饰器 (policy decorators)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#View-schema-装饰器"><span class="post-toc-text">View schema 装饰器</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -351,20 +351,11 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://os6ycxx7w.bkt.clouddn.com/images/9e77698c-cdcd-4540-b85a-1000d8e57e69.png)">
     
             <p class="article-headline-p">
-                Yertle the Turtle（乌龟大王亚特尔）
+                Django REST framework API 指南：视图
             </p>
         </div>
 
@@ -383,7 +374,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>jianshijiuyou</strong>
-        <span>8月 24, 2017</span>
+        <span>3月 02, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -405,7 +396,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://jiuyou.info/2017/08/24/Yertle_the_Turtle/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://jiuyou.info/2018/03/02/DjangoRESTframeworkAPIViews/">
     
 </ul>
     
@@ -418,7 +409,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/Django/">Django</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/REST/">REST</a>
     </ul>
     
 
@@ -434,7 +425,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Yertle the Turtle（乌龟大王亚特尔）&url=http://jiuyou.info/2017/08/24/Yertle_the_Turtle/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Django REST framework API 指南：视图&url=http://jiuyou.info/2018/03/02/DjangoRESTframeworkAPIViews/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -458,7 +449,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://jiuyou.info/2017/08/24/Yertle_the_Turtle/index.html&text=Yertle the Turtle（乌龟大王亚特尔）" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://jiuyou.info/2018/03/02/DjangoRESTframeworkAPIViews/index.html&text=Django REST framework API 指南：视图" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -473,22 +464,134 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><strong>作者</strong>：苏斯博士（Dr. Seuss）<br><strong>译者</strong>：阮一峰  </p>
-<p>有一个很远很远的岛，叫做沙拉－玛－沙德岛，<br>那里的池塘住着乌龟大王亚特尔。<br>那是一个美丽的小池塘，干净又整洁。<br>池水温暖，食物充足。<br>乌龟们什么也不缺。<br>它们全都快快乐乐，非常非常的快乐。  </p>
-<p>但是现在……一切都变了，乌龟大王亚特尔<br>觉得它的王国太小了。<br>“我是国王”，它说，”统治着一切我能看到的东西。<br>但我觉得这还不够，我很不满意。<br>这块石头是我的王位，坐在上面，我可以看到整个池塘。<br>但是它太低，太低了。<br>它应该更高！”它皱着眉头说。<br>“如果我坐得更高，我将是多么伟大，<br>多么了不起的一个国王啊！我看到的一切，都要受我的统治！”  </p>
-<p>于是，乌龟大王亚特尔下了命令。<br>它命令九只乌龟来到石头前。<br>它用这些乌龟做了一个新的王位。<br>每只乌龟都叠在另一只的背上，<br>它让九只乌龟高高地叠在一起。<br>然后，自己爬上去，坐在上面。<br>多么美妙的景观啊！它能看到一英里以外！</p>
-<p>“它们都是我的！”它叫起来。”哦，现在它们都归我统治！<br>我是一头母牛的国王！我是一头骡子的国王！<br>我是一所房子的国王！更远的地方还有呢，<br>我是蓝莓灌木丛的国王，我是一只猫的国王！<br>我是乌龟大王亚特尔！哦，我多么伟大啊！<br>我是我看到的一切的统治者！”  </p>
-<p>整个早上，它都高高的坐着，<br>一遍又一遍的说，”我是一个了不起的国王！”<br>中午过了很久，它听到一声微弱的叹气。<br>“什么声音？”国王呵斥道。它从上往下看。<br>看到了最低下那只叫做莫克的乌龟。<br>它是王位的一部分。这只普通的小乌龟<br>抬起头，说：”乌龟大王亚特尔，请原谅。<br>我的背，我的肩膀，我的膝盖都在疼。<br>陛下，我们还必须在这里待多久呀？”  </p>
-<p>“闭嘴！”乌龟大王低头训斥。<br>“我是国王，你只是一直叫做莫克的乌龟。”  </p>
-<p>“你有你待的位置，而我就坐在这里统治一切。<br>我是一头母牛的国王！我是一头骡子的国王！<br>我是一所房子的国王！还有灌木丛！还有一只猫！<br>这还不够。我还要更多！<br>我的王位还要更高！”它显赫的声音好像雷鸣，<br>“让更多的乌龟堆在一起！我要两百只！”  </p>
-<p>“乌龟们！更多的乌龟！”它又喊又叫。<br>池塘里的乌龟们都感到害怕。<br>它们发抖，它们摇晃。但它们还是乖乖的过来了。<br>从池塘的各个角落，它们成群结队的游过来。<br>许多乌龟都是一家一起来，里面有伯父和堂兄。<br>所有的乌龟都踩在莫克可怜的头上。<br>一个接一个，它们爬上去堆在一起。  </p>
-<p>这样，乌龟大王亚特尔就坐得更高了，<br>它的王位升到了天上，它可以看见四十英里以外！<br>“好哇！”乌龟大王叫道。”我是树林的国王！<br>我是小鸟的国王！我是蜜蜂的国王！<br>我是蝴蝶的国王！我是空气的国王！<br>啊，这就是我！这个王位太好了，太美妙了！<br>我是乌龟大王亚特尔！啊，我多伟大！<br>我是我看到的一切的统治者！  </p>
-<p>从这又高又沉的王位下面，又一次<br>传来了小乌龟莫克的呻吟。<br>“陛下，求求你……我不喜欢抱怨，<br>但是待在下面，我们都感到很疼。<br>我知道您在上面，看到了美妙的景色。<br>但是我们在下面的乌龟，也应该有权利啊。<br>我们这些乌龟不能再忍受了。我们的壳快要裂开了！<br>此外，我们还需要食物。我们快饿死了！”莫克呻吟道。  </p>
-<p>“闭上你的嘴！”庄严的乌龟大王亚特尔怒吼道。<br>“你没有权利与世界上最伟大的乌龟说话。<br>我是从天上来统治一切的！我俯视大地！我俯视海洋！<br>没有东西比我更高了，没有这样的东西！”  </p>
-<p>但是，正当它大喊大叫，它惊讶的看到<br>夜晚的月亮慢慢升上来<br>在黑暗的天空中悬在它的头顶。<br>“那是什么？”乌龟大王哼了一声，”这是什么玩意<br>胆敢比乌龟大王亚特尔还高？<br>我决不允许它。我还要坐得更高！<br>我要我的王位变得更高！我能做到，我一定能做到！<br>我还要叫更多的乌龟。我要把它们堆到天上！<br>我需要五千六百零七只乌龟！”  </p>
-<p>但是，就在乌龟大王亚特尔举起手<br>开始下命令的时候，<br>被压在王位底下的那只普通的小乌龟，<br>那只名叫莫克的普通的小乌龟，<br>觉得它已经受够了，真的受够了，<br>这只普通的小乌龟变得有点疯狂了。<br>这只叫做莫克的小乌龟做了一件小事。<br>它打了一个嗝！<br>然后，它的嗝动摇了国王的王位！  </p>
-<p>乌龟大王亚特尔，这个树丛的国王，<br>空气、小鸟和蜜蜂的国王，<br>一所房子、一头母牛、一头骡子的国王……<br>乌龟大王亚特尔的统治就这样结束了！<br>亚特尔，这个沙拉－玛－沙德岛上一切东西的统治者，<br>从它高高的王位上掉了下来，”砰”得跌进了池塘。  </p>
-<p>今天，那位伟大的乌龟大王亚特尔成了<br>伟大的烂泥大王亚特尔。那就是它能看到的一切。<br>当然，其他的乌龟……所有的乌龟都自由了<br>像它们—-也许是所有生物—-本应当的那样自由了。  </p>
+        <blockquote>
+<p><a href="http://www.django-rest-framework.org/api-guide/views/" target="_blank" rel="external">官方原文链接</a></p>
+</blockquote>
+<h2 id="基于类的视图"><a href="#基于类的视图" class="headerlink" title="基于类的视图"></a>基于类的视图</h2><p>REST framework  提供了一个 <code>APIView</code> 类，它继承于 Django 的 <code>View</code> 类。</p>
+<p><code>APIView</code> 类与不同的 <code>View</code> 类有所不同：  </p>
+<ul>
+<li>传递给处理方法的 request 对象是 REST framework 的 <code>Request</code> 实例，而不是 Django 的 <code>HttpRequest</code> 实例。</li>
+<li>处理方法可能返回 REST framework 的 <code>Response</code>，而不是 Django 的 <code>HttpResponse</code> 。该视图将管理内容的处理，并在响应中设置正确的渲染器。</li>
+<li>任何 <code>APIException</code> 异常都会被捕获并进行适当的响应。</li>
+<li>传入的请求会进行认证，在请求分派给处理方法之前将进行适当的权限检查（允许或限制）。</li>
+</ul>
+<p>像往常一样，使用 <code>API​​View</code> 类与使用常规 <code>View</code> 类非常相似，传入的请求被分派到适当的处理方法，如 <code>.get()</code> 或<code>.post()</code>。此外，可以在类上设置许多属性（AOP）。</p>
+<p>举个栗子：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>views <span class="token keyword">import</span> APIView
+<span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>response <span class="token keyword">import</span> Response
+<span class="token keyword">from</span> rest_framework <span class="token keyword">import</span> authentication<span class="token punctuation">,</span> permissions
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>models <span class="token keyword">import</span> User
+
+<span class="token keyword">class</span> <span class="token class-name">ListUsers</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    列出系统中的所有用户
+
+    * 需要 token 认证。
+    * 只有 admin 用户才能访问此视图。
+    """</span>
+    authentication_classes <span class="token operator">=</span> <span class="token punctuation">(</span>authentication<span class="token punctuation">.</span>TokenAuthentication<span class="token punctuation">,</span><span class="token punctuation">)</span>
+    permission_classes <span class="token operator">=</span> <span class="token punctuation">(</span>permissions<span class="token punctuation">.</span>IsAdminUser<span class="token punctuation">,</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> format<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Return a list of all users.
+        """</span>
+        usernames <span class="token operator">=</span> <span class="token punctuation">[</span>user<span class="token punctuation">.</span>username <span class="token keyword">for</span> user <span class="token keyword">in</span> User<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span>usernames<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>注意：REST Framework 中的 <code>APIView</code>，<code>GenericAPIView</code>，各种 <code>Mixins</code> 和 <code>Viewsets</code> 包含许多方法和属性，刚开始要全部理解是比较困难的。这里除了文档，有一个 <a href="http://www.cdrf.co/" target="_blank" rel="external">Classy Django REST Framework</a> 资源，它提供了一个可以在线浏览的参照，包含所有属性和方法。</p>
+</blockquote>
+<h3 id="API-策略属性（policy-attributes）"><a href="#API-策略属性（policy-attributes）" class="headerlink" title="API 策略属性（policy attributes）"></a>API 策略属性（policy attributes）</h3><p>以下属性用于增加扩展视图的功能，AOP。</p>
+<p>.renderer_classes<br>设置渲染器</p>
+<p>.parser_classes<br>设置解析器</p>
+<p>.authentication_classes<br>设置认证器</p>
+<p>.throttle_classes</p>
+<p>.permission_classes<br>设置权限验证器</p>
+<p>.content_negotiation_class</p>
+<h3 id="API-策略实例方法（policy-instantiation-methods）"><a href="#API-策略实例方法（policy-instantiation-methods）" class="headerlink" title="API 策略实例方法（policy instantiation methods）"></a>API 策略实例方法（policy instantiation methods）</h3><p>以下策略实例方法通常不需要我们重写。</p>
+<p>.get_renderers(self)</p>
+<p>.get_parsers(self)</p>
+<p>.get_authenticators(self)</p>
+<p>.get_throttles(self)</p>
+<p>.get_permissions(self)</p>
+<p>.get_content_negotiator(self)</p>
+<p>.get_exception_handler(self)</p>
+<h3 id="API-策略实现方法（policy-implementation-methods）"><a href="#API-策略实现方法（policy-implementation-methods）" class="headerlink" title="API 策略实现方法（policy implementation methods）"></a>API 策略实现方法（policy implementation methods）</h3><p>在分派到处理方法之前会调用以下方法。</p>
+<p>.check_permissions(self, request)</p>
+<p>.check_throttles(self, request)</p>
+<p>.perform_content_negotiation(self, request, force=False)</p>
+<h3 id="方法调度"><a href="#方法调度" class="headerlink" title="方法调度"></a>方法调度</h3><p>以下方法由视图的 <code>.dispatch()</code> 方法直接调用。它们在调用处理方法（<code>.get()</code>, <code>.post()</code>, <code>put()</code>, <code>patch()</code> 和 <code>.delete()</code>）之前或者之后被调用。</p>
+<p><strong>.initial(self, request, *args, **kwargs)</strong></p>
+<p>用于执行<strong>处理方法被调用</strong>之前需要的任何操作。强制执行一些权限验证和限制操作。</p>
+<p><strong>.handle_exception(self, exc)</strong></p>
+<p>处理方法抛出的任何异常都将传递给此方法，该方法返回一个 <code>Response</code> 实例，或者重新引发异常。</p>
+<p>默认实现处理 <code>rest_framework.exceptions.APIException</code> 的任何子类，以及 Django 的 <code>Http404</code> 和<code>PermissionDenied</code> 异常，并返回相应的错误响应。</p>
+<p>如果需要自定义 API 返回的错误响应，应该重写此方法。</p>
+<p><strong>.initialize_request(self, request, *args, **kwargs)</strong></p>
+<p>确保传递给处理方法的请求对象是 <code>Request</code> 的一个实例，而不是通常的 Django <code>HttpRequest</code>。</p>
+<p>通常不需要重写此方法。</p>
+<p><strong>.finalize_response(self, request, response, *args, **kwargs)</strong></p>
+<p>确保从处理方法返回的任何 <code>Response</code> 对象将被呈现为正确的内容类型，这由内容协商（content negotiation）确定。</p>
+<p>通常不需要重写此方法。</p>
+<h2 id="基于方法的视图"><a href="#基于方法的视图" class="headerlink" title="基于方法的视图"></a>基于方法的视图</h2><p>REST framework 也允许使用基于函数的视图。它提供了一套简单的装饰器来包装你的函数视图，以确保它们接收 <code>Request</code>（而不是 Django <code>HttpRequest</code>）实例并允许它们返回 <code>Response</code>（而不是 Django <code>HttpResponse</code>），并允许你配置该请求的处理方式。  </p>
+<h3 id="api-view"><a href="#api-view" class="headerlink" title="@api_view()"></a>@api_view()</h3><p>签名：<code>@api_view(http_method_names=[&#39;GET&#39;])</code>  </p>
+<p><code>api_view</code> 是一个装饰器，用 <code>http_method_names</code> 来设置视图允许响应的 HTTP 方法列表，举个栗子，编写一个简单的视图，手动返回一些数据。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>decorators <span class="token keyword">import</span> api_view
+
+@api_view<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">hello_world</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello, world!"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>该视图将使用 <code>settings</code> 中指定的默认渲染器，解析器，认证类等。</p>
+<p>默认情况下，只有 <code>GET</code> 方法会被接受。其他方法将以 <code>&quot;405 Method Not Allowed&quot;</code> 进行响应。要改变这种行为，请指定视图允许的方法，如下所示：</p>
+<pre class=" language-python"><code class="language-python">@api_view<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">hello_world</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'POST'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Got some data!"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>data<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello, world!"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="API-策略装饰器-policy-decorators"><a href="#API-策略装饰器-policy-decorators" class="headerlink" title="API 策略装饰器 (policy decorators)"></a>API 策略装饰器 (policy decorators)</h3><p>为了覆盖默认设置，REST framework 提供了一系列可以添加到视图中的附加装饰器。这些必须在 <code>@api_view</code> 装饰器之后（下方）。例如，要创建一个使用 <code>throttle</code> 来确保它每天只能由特定用户调用一次的视图，请使用 <code>@throttle_classes</code> 装饰器，传递一个 <code>throttle</code> 类列表：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>decorators <span class="token keyword">import</span> api_view<span class="token punctuation">,</span> throttle_classes
+<span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>throttling <span class="token keyword">import</span> UserRateThrottle
+
+<span class="token keyword">class</span> <span class="token class-name">OncePerDayUserThrottle</span><span class="token punctuation">(</span>UserRateThrottle<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        rate <span class="token operator">=</span> <span class="token string">'1/day'</span>
+
+@api_view<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@throttle_classes<span class="token punctuation">(</span><span class="token punctuation">[</span>OncePerDayUserThrottle<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">view</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello for today! See you tomorrow!"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这些装饰器对应于 <code>APIView</code> 上设置的策略属性。</p>
+<p>可用的装饰器有：</p>
+<ul>
+<li><code>@renderer_classes(...)</code></li>
+<li><code>@parser_classes(...)</code></li>
+<li><code>@authentication_classes(...)</code></li>
+<li><code>@throttle_classes(...)</code></li>
+<li><code>@permission_classes(...)</code></li>
+</ul>
+<p>每个装饰器都有一个参数，它必须是一个类列表或者一个类元组。</p>
+<h3 id="View-schema-装饰器"><a href="#View-schema-装饰器" class="headerlink" title="View schema 装饰器"></a>View schema 装饰器</h3><p>要覆盖函数视图的默认 模式生成（schema generation），可以使用 <code>@schema</code> 装饰器。这必须在 <code>@api_view</code> 装饰器之后（下方）。例如：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>decorators <span class="token keyword">import</span> api_view<span class="token punctuation">,</span> schema
+<span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>schemas <span class="token keyword">import</span> AutoSchema
+
+<span class="token keyword">class</span> <span class="token class-name">CustomAutoSchema</span><span class="token punctuation">(</span>AutoSchema<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">get_link</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> path<span class="token punctuation">,</span> method<span class="token punctuation">,</span> base_url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># override view introspection here...</span>
+
+@api_view<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@schema<span class="token punctuation">(</span>CustomAutoSchema<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">view</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello for today! See you tomorrow!"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>该装饰器将采用一个 <code>AutoSchema</code> 实例，一个 <code>AutoSchema</code> 子类实例或 <code>ManualSchema</code> 实例，如<a href="http://www.django-rest-framework.org/api-guide/schemas/" target="_blank" rel="external"> Schemas 文档</a>（先放官链）中所述。您也可以传 <code>None</code> 以从 模式生成（schema generation） 中排除视图。</p>
+<pre class=" language-python"><code class="language-python">@api_view<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@schema<span class="token punctuation">(</span>None<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">view</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Will not appear in schema!"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 
     
 
@@ -536,21 +639,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/24/How_do_I_love_thee/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/08/22/smali_file_format/" id="post_nav-older" class="next-content">
+        <a href="/2018/03/01/DjangoRESTframeworkAPIResponses/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -642,7 +737,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">3</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
@@ -660,7 +755,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/android/">android<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/hexo/">hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/kotlin/">kotlin<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/">python<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/微信小程序/">微信小程序<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/随手抄/">随手抄<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/android/">android<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/hexo/">hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/kotlin/">kotlin<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/python/">python<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/微信小程序/">微信小程序<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">10</span></a>
             </ul>
         </li>
         
@@ -684,7 +779,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">33</span>
+                <span class="sidebar-badge">32</span>
             </a>
         </li>
         
